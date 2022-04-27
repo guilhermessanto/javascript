@@ -12,3 +12,9 @@ function converter(){
     return  resultadoMoeda.textContent = moeda.value * 5;
     
 }
+let formataValor = valor => {
+    return valor.toLocaleString('pt-br',{
+        style: 'currency',
+        currency:'BRL'
+    });
+};
