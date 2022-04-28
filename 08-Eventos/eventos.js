@@ -24,3 +24,55 @@ btn.addEventListener('click',function(){
     }
 });
 
+// Exemplo 3: formulário
+const formulario = pagina.querySelector('form');
+const campoNome = formulario.querySelector('#nome');
+const campoNota1 = formulario.querySelector('#nota1');
+const campoNota2 = formulario.querySelector('#nota2');
+const corpoTabela = pagina.querySelector('tbody');
+
+formulario.addEventListener('submit', function(event){
+    //previne o comportamento padrão do formulário
+    event.preventDefault();
+    // capturando os dados digitados
+    let nome = campoNome.value;
+    let nota1 = parseFloat(campoNota1.value);
+    let nota2 = parseFloat(campoNota2.value);
+    
+    //Calculando a média
+    let media = calculaMedia(nota1,nota2);
+
+    //Verificando a situação
+    let situacao = verificaSituacao(media);
+
+    //Montafem do resumo do aluno
+    montarResumo(nome , media , situacao);
+
+    //resetando o formulário
+    formulario.reset();
+
+    // levando o foco para o campo nome
+    nome.focus();
+});
+
+function calculaMedia(nota1,nota2){
+    return (nota1 + nota2)/2;
+};
+function verificaSituacao(media){
+    if(media >= 7 ){
+        return 'aprovado'
+    }else{
+        return 'reprovado'
+    };
+};
+function montarResumo(nome , media, situacao){
+    //1. Criar o elemento dinamicamente 
+    let linha = document.createElement('tr');
+    //2. Montar o conteúdo do elemento criado
+    linha.innerHTML = `<td>${nome}</td>
+                        <td>${media}</td>
+                        <td>${situacao}</td>`;
+
+   //3. Adicionar o elemento ao DOM (corpoTabela)
+   corpoTabela.appendChild(linha);                     
+};
