@@ -11,3 +11,16 @@ sub01.addEventListener('mouseout',function(){
 });
 
 //exemplo 02
+
+const btn = pagina.querySelector('#noturno');
+btn.addEventListener('click',function(){
+    pagina.classList.toggle('modo-noturno');
+    //desafio: mudar o rótulo do botão a medida em que o usuário clica
+
+    if(btn.textContent == 'Ativar'){
+        btn.textContent = 'Desativar';
+    }else{
+        btn.textContent = 'Ativar';
+    }
+});
+
