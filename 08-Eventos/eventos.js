@@ -52,7 +52,7 @@ formulario.addEventListener('submit', function(event){
     formulario.reset();
 
     // levando o foco para o campo nome
-    nome.focus();
+    campoNome.focus();
 });
 
 function calculaMedia(nota1,nota2){
