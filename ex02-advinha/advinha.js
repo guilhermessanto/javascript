@@ -24,11 +24,11 @@ btn.onclick = function(){
         };            
     }else{
         resultado.innerHTML = "LOSER, tente novamente recarregando a página";
-    }
+    };
 });
     i++
     console.log(i) 
-}
+};
 
 
 
