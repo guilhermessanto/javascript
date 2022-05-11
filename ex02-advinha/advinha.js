@@ -29,6 +29,3 @@ btn.onclick = function(){
     i++
     console.log(i) 
 };
-
-
-
